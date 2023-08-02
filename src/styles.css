@@ -32,3 +32,8 @@ h1 {
   letter-spacing: -0.045em;
   white-space: nowrap;
 }
+
+.frame{
+  width: 100%;
+  height: 100%;
+}
