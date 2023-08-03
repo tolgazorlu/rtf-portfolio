@@ -2,6 +2,8 @@
 
 [You can visit this project with this link (projeyi buradan inceleyebilirsiniz)](https://tolgazorlu-threejs.vercel.app)
 
+You can use Google Chrome for better experiences
+
 React, ThreeJS portfolio project.
 
 React, ThreeJS, React Spring in this website.

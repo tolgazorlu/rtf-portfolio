@@ -90,7 +90,7 @@ function Phone(props) {
             transform
             wrapperClass="htmlScreen"
             distanceFactor={2}
-            position={[0.15, -0.20, 0.07]}>
+            position={[0.15, -0.2, 0.07]}>
             <iframe width={300} height={640} src="https://tolg.dev" />
           </Html>
         </mesh>
@@ -145,13 +145,35 @@ export default function App() {
   const p2 = [0, 0, -25]
   const r = [0, 0, 0]
   const r2 = [-0.35, 0, 0]
-  
-  const fp2  = [-5, 0, -20]
-  const fr2  = [30, 0, 0]
+
+  const fp2 = [-5, 0, -20]
+  const fr2 = [30, 0, 0]
 
   const [cameraPosition, setCameraPosition] = useState([0, 0, 0])
   const [cameraRotation, setCameraRotation] = useState([0, 0, 0])
-  
+
+  const [focusPhone, setFocusPhone] = useState(false)
+
+  const focusOnMac = (e) => {
+    e.preventDefault
+    if (open) {
+      setCameraPosition(p2)
+      setCameraRotation(r2)
+    }
+  }
+
+  const focusOnPhone = (e) => {
+    e.stopPropagation()
+    if (!focusPhone) {
+      setCameraPosition(fp2)
+      setCameraRotation(fr2)
+      setFocusPhone(true)
+    } else {
+      setCameraPosition(p)
+      setCameraRotation(r)
+      setFocusPhone(false)
+    }
+  }
 
   // We turn this into a spring animation that interpolates between 0 and 1
   const props = useSpring({ open: Number(open) })
@@ -172,16 +194,9 @@ export default function App() {
                 hinge={props.open.to([0, 1], [1.575, -0.425])}
                 position={[0, 0, -30]}
               />
-              <Phone position={[-8, -4.4, 0]} rotation={[-1.57, 0, 0]} onClick={(e) => (e.stopPropagation(), setCameraPosition(fp2), setCameraRotation(fr2))}/>
-              <Table position={[4, -6, 0]}/>
-              <Tea
-                rotation={[0, 2.4, 0]}
-                position={[8, -4.5, 0]}
-                onClick={(e) => {
-                  e.preventDefault, setCameraPosition(p2)
-                  setCameraRotation(r2)
-                }}
-              />
+              <Phone position={[-8, -4.4, 0]} rotation={[-1.57, 0, 0]} onClick={focusOnPhone} />
+              <Table position={[4, -6, 0]} />
+              <Tea rotation={[0, 2.4, 0]} position={[8, -4.5, 0]} onClick={focusOnMac} />
               {/* <Bookcase position={[0, -13, -10]} /> */}
             </group>
             <Environment preset="city" />
