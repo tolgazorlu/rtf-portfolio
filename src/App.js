@@ -91,7 +91,7 @@ function Phone(props) {
             wrapperClass="htmlScreen"
             distanceFactor={2}
             position={[0.15, -0.20, 0.07]}>
-            <iframe width={300} height={640} src="https://bruno-simon.com/html/" />
+            <iframe width={300} height={640} src="https://tolg.dev" />
           </Html>
         </mesh>
       </group>
@@ -123,7 +123,7 @@ function Model({ open, hinge, ...props }) {
           <mesh material={materials['matte.001']} geometry={nodes['Cube008_1'].geometry} />
           <mesh material={materials['screen.001']} geometry={nodes['Cube008_2'].geometry}>
             <Html style={{ opacity: open ? 1 : 0 }} transform wrapperClass="htmlScreen" distanceFactor={2} rotation-x={-190.05}>
-              <iframe width={1665} height={1040} src="https://bruno-simon.com/html/" />
+              <iframe width={1665} height={1040} src="https://tolg.dev" />
             </Html>
           </mesh>
         </group>
