@@ -1,7 +1,6 @@
 <h1>THREEJS PORTFOLIO</h1>
 
-[You can visit this project with this link](https://tolgazorlu-threejs.vercel.app)
-[Projeyi buradan inceleyebilirsiniz:](https://tolgazorlu-threejs.vercel.app)
+[You can visit this project with this link (projeyi buradan inceleyebilirsiniz)](https://tolgazorlu-threejs.vercel.app)
 
 React, ThreeJS portfolio project.
 
