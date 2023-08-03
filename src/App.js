@@ -162,7 +162,6 @@ export default function App() {
         Click tea!
       </web.h1>
       <Canvas dpr={[1, 2]} camera={{ position: [0, 0, -30], fov: 35 }}>
-        <OrbitControls />
         <PerspectiveCamera position={cameraPosition} rotation={cameraRotation}>
           <three.pointLight position={[10, 10, 10]} intensity={1.5} color={props.open.to([0, 1], ['#f0f0f0', '#b0b0b0'])} />
           <Suspense fallback={null}>
