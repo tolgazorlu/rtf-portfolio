@@ -1,18 +1,22 @@
-import React, { Suspense, useState } from 'react'
-import { Canvas } from '@react-three/fiber'
-import { ContactShadows, Environment, PerspectiveCamera } from '@react-three/drei'
+import React, { Suspense, useRef, useState } from 'react'
+import { Canvas, useFrame } from '@react-three/fiber'
+import { ContactShadows, Environment, OrbitControls, PerspectiveCamera } from '@react-three/drei'
 import { useSpring } from '@react-spring/core'
 import { a as three } from '@react-spring/three'
 import { a as web } from '@react-spring/web'
+
 import Macbook from './Models/Macbook'
 import Table from './Models/Table'
 import Phone from './Models/Phone'
 import Tea from './Models/Tea'
 import Ground from './Models/Ground'
+
 import LoadingScreen from './LoadingScreen'
 
 export default function App() {
   // This flag controls open state, alternates between true & false
+  
+
   const p = [0, 0, 0]
   const p2 = [0, 0, -25]
   const r = [0, 0, 0]
@@ -50,15 +54,24 @@ export default function App() {
   // We turn this into a spring animation that interpolates between 0 and 1
   const props = useSpring({ open: Number(open) })
 
+  const {cameraPosY, cameraRot} = useSpring({
+    from:{
+      cameraPosY: 0
+    },
+    to: {
+      cameraPosY: -25
+    }
+  })
+
   return (
-    // <web.main style={{ background: props.open.to([0, 1], ['#f0f0f0', '#b0b0b0']) }}>
     <>
-    <web.main>
+    <web.main style={{ background: props.open.to([0, 1], ['#000', '#000']) }}>
       <web.h1 style={{ opacity: props.open.to([0, 1], [1, 0]), transform: props.open.to((o) => `translate3d(-50%,${o * 50 - 100}px,0)`) }}>Hi</web.h1>
-      <web.h1 style={{ color: 'black', opacity: props.open.to([0, 1], [0, 1]), transform: props.open.to((o) => `translate3d(-50%,${o * 50 - 300}px,0)`) }}>
+      <web.h1 style={{ color: '#fff', opacity: props.open.to([0, 1], [0, 1]), transform: props.open.to((o) => `translate3d(-50%,${o * 50 - 300}px,0)`) }}>
         Click tea or phone!
       </web.h1>
       <Canvas dpr={[1, 2]} camera={{ position: [0, 0, -30], fov: 35 }}>
+        <OrbitControls />
         <PerspectiveCamera position={cameraPosition} rotation={cameraRotation}>
           <spotLight color={[1, 0.25, 0.7]} intensity={1.5} angle={0.6} penumbra={0.5} position={[5, 5, 0]} castShadow shadow-bias={-0.0001} />
           <spotLight color={[0.14, 0.5, 1]} intensity={2} angle={0.6} penumbra={0.5} position={[-5, 5, 0]} castShadow shadow-bias={-0.0001} />
