@@ -1,25 +1,55 @@
-<h1>THREEJS PORTFOLIO</h1>
+# rtf-portfolio
 
-[You can visit this project with this link (projeyi buradan inceleyebilirsiniz)](https://tolgazorlu-threejs.vercel.app)
+A 3D personal portfolio built with React Three Fiber, animating a GLTF model in the browser.
 
-You can use Google Chrome for better experiences
+## About
 
-React, ThreeJS portfolio project.
+A personal portfolio site that renders an interactive 3D scene (a floating laptop model) instead of a flat page, built in 2023.
 
-React, ThreeJS, React Spring in this website.
+## Features
 
-Bu proje React, ThreeJS ve React Spring ile yazıldı.
-## 💻 Proje Kurulum
+- 3D scene rendering with React Three Fiber and drei
+- GLTF model animation using react-spring and GSAP
+- Custom loading screen for asset loading progress
 
-- Adım 1 - Bu projeyi bilgisayarınıza klonlayın:
-  `git clone https://github.com/tolgazorlu/rtf-portfolio`
+## Tech stack
 
-- Adım 2 - Projede dizinine gidin, gerekli modülleri yükleyin ve projeyi çalıştırın:
-  `cd rtf-portfolio`
-  `npm install`
-  `npm start`
-## 🤝 Katkıda Bulunma
+- React 18, Create React App (react-scripts)
+- @react-three/fiber, @react-three/drei, three.js
+- @react-spring/three, @react-spring/web
+- GSAP
 
-Eğer projenin kodlarını keşfetmek, geri bildirim sağlamak veya projeye katkıda bulunmak isterseniz "fork" işlemi yaparak kendi kopyanızı oluşturabilir ve değişikliklerinizi yapabilirsiniz. Ardından "pull request" göndererek değişikliklerinizin incelenmesini ve projeye eklenmesini sağlayabilirsiniz.
+## Project structure
 
-☎️ Bu projeyle ilgili herhangi bir sorunuz veya geri bildiriminiz varsa, lütfen iletişime geçmekten çekinmeyin. İyi Çalışmalar!
+```
+src/
+  App.js            # scene setup
+  LoadingScreen.js  # asset loading UI
+  Models/           # GLTF model wrapper
+public/
+  model.gltf, mac-draco.glb, environmentMaps/
+```
+
+## Getting started
+
+```bash
+git clone https://github.com/tolgazorlu/rtf-portfolio
+cd rtf-portfolio
+npm install
+npm start
+```
+
+## Status
+
+Active personal portfolio project.
+
+Live: https://tolgazorlu-threejs.vercel.app
+
+## Related projects
+
+- https://github.com/tolgazorlu/tolgazorlu-portfolio
+- https://github.com/tolgazorlu/tolgdev
+
+## License
+
+MIT
